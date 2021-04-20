@@ -1,65 +1,269 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import App from '../components/App'
+import anime from 'animejs/lib/anime';
+import { useEffect } from "react";
+
 
 export default function Home() {
+
+  useEffect(() => {
+    anime({
+      targets: '.helpper .btn',
+      translateX: 1300,
+      delay: function(el, i, l) {
+        return i * 100;
+      },
+      endDelay: function(el, i, l) {
+        return (l - i) * 100;
+      }
+    });
+  }, []);
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <App>
+        <Head>
+          <title>Meigo Argentina</title>
+        </Head>
 
-      <main className={styles.main}>
-        <div className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </div>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <main>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+          <section className='helpper'>
+            <div className='view-all-payments'>
+              <div className='btn'>
+                Ver todos los metodos de pago <span>⌄</span>
+              </div>
+              <div className='container'></div>
+            </div>
+            <div className='view-all-paymentssss'>
+              <div className='btn'>
+                Ver todos los metodos de pago sarasa <span>⌄</span>
+              </div>
+              <div className='container'></div>
+            </div>
+          </section>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+          
+          <section className='discovery'>
+            <div className="title">
+              <div className='container'>
+                <span>Descubrimientos 🤯</span>
+                <a href='#'>Ver Más</a>
+              </div>
+              <div className="bar"></div>
+            </div>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+            <div className='content'>
+              <div className='grid'>
+                <a className='card' href="#">
+                  <div className='image-container'>
+                    <img src='https://http2.mlstatic.com/D_Q_NP_711388-MLA40381347063_012020-AB.webp'></img>
+                  </div>
+                  <p>
+                    $ 230.000
+                  </p>
+                  <div>Heladera alta calidad 33w, espacio para 2 meses de productos</div>
+                </a>
+                <a className='card' href="#">
+                  <div className='image-container'>
+                    <img src='https://http2.mlstatic.com/D_Q_NP_711388-MLA40381347063_012020-AB.webp'></img>
+                  </div>
+                  <p>
+                    $ 230.000
+                  </p>
+                  <div>Heladera alta calidad 33w, espacio para 2 meses de productos</div>
+                </a>
+                <a className='card' href="#">
+                  <div className='image-container'>
+                    <img src='https://http2.mlstatic.com/D_Q_NP_711388-MLA40381347063_012020-AB.webp'></img>
+                  </div>
+                  <p>
+                    $ 230.000
+                  </p>
+                  <div>Heladera alta calidad 33w, espacio para 2 meses de productos</div>
+                </a>
+                <a className='card' href="#">
+                  <div className='image-container'>
+                    <img src='https://http2.mlstatic.com/D_Q_NP_711388-MLA40381347063_012020-AB.webp'></img>
+                  </div>
+                  <p>
+                    $ 230.000
+                  </p>
+                  <div>Heladera alta calidad 33w, espacio para 2 meses de productos</div>
+                </a>
+              </div>
+            </div>
+          </section>
+          
+        </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+
+
+
+        <style jsx>{`
+
+          main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+          }
+          
+          .grid {
+            display: flex;
+            align-items: top;
+            flex-wrap: wrap;
+            max-width: 100%;
+          }
+
+          @media (max-width: 600px) {
+            .grid {
+              justify-content: center;
+            }
+
+            .discovery > .title > .container > a {
+                margin: 0 !important;
+                padding: 0.3rem 0.5rem !important;
+            }
+          }
+
+          .card {
+            margin: 1rem;
+            padding: 1.5rem;
+            text-align: left;
+            color: inherit;
+            text-decoration: none;
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            max-width: 275px;
+            transition: color 0.15s ease, border-color 0.15s ease, 0.2s ease transform;
+          }
+
+          .card:hover,
+          .card:focus,
+          .card:active {
+            border-color: #0070f3;
+            cursor: pointer;
+            transform: translate(0px, -0.5rem);
+            background-color: #0070f306;
+          }
+
+          .card:hover p, .card:hover div,
+          .card:focus p, .card:focus div,
+          .card:active p, .card:active div {
+            color: #0070f3;
+          }
+
+          .card p {
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.25rem;
+            line-height: 1.5;
+          }
+
+          .image-container {
+            overflow: hidden;
+            width: 225px;
+            height: 225px;
+          }
+
+          .image-container > img {
+            height: 100%;
+          }
+
+          .card > div {
+            overflow: hidden;
+            color: rgb(100,100,100);
+          }
+
+          .content {
+            margin-top: 1rem;
+          }
+
+          .discovery {
+            margin-top: 3rem;
+          }
+
+          .discovery > .title {
+            margin-left: 1rem;
+            font-size: 1.5rem;
+            line-height: 1.15;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding-right: 2rem;
+          }
+
+          .discovery > .title > .container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+          }
+
+          .discovery > .title > .container > a {
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            border-radius: 0.4rem;
+            color: #3483fa;
+            margin: 0 1rem 0 0.6rem;
+            transition: 0.5s ease background-color;
+          }
+
+          .discovery > .title > .container > a:hover {
+            background-color: rgba(0, 112, 243, 0.1);
+          }
+
+          .discovery > .title > .bar {
+            flex: 1;
+            background-color: rgb(220,220,220);
+            height: 1px;
+          }
+
+
+          .helpper {
+            width: 90%;
+            margin-top: 3rem;
+          }
+
+          .helpper > div {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+
+          .helpper .btn {
+            padding: 1rem 2rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            color: #3483fa;
+            background-color: #f9f3ff;
+            cursor: pointer;
+            line-height: 1.15;
+            font-weight: 600;
+            user-select: none;
+
+            /* For animated */
+            position: relative;
+            left: -1300px;
+          }
+
+          .helpper .btn > span {
+            position: relative;
+            top: -2px;
+          }
+
+          .helpper .container {
+            padding: 1rem 2rem;
+            text-align: center;
+            width: 80%;
+            display: none;
+          }
+
+
+
+        `}</style>
+    </App>
+    
   )
 }
