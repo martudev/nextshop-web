@@ -2,6 +2,7 @@ import Head from 'next/head'
 import App from '../components/App'
 import anime from 'animejs/lib/anime';
 import { useEffect } from "react";
+import HelperInfo from '../components/Helper/HelperInfo';
 
 
 export default function Home() {
@@ -29,20 +30,7 @@ export default function Home() {
 
         <main>
 
-          <section className='helpper'>
-            <div className='view-all-payments'>
-              <div className='btn'>
-                Ver todos los metodos de pago <span>⌄</span>
-              </div>
-              <div className='container'></div>
-            </div>
-            <div className='view-all-paymentssss'>
-              <div className='btn'>
-                Ver todos los metodos de pago sarasa <span>⌄</span>
-              </div>
-              <div className='container'></div>
-            </div>
-          </section>
+          <HelperInfo></HelperInfo>
 
           
           <section className='discovery'>
@@ -219,48 +207,6 @@ export default function Home() {
             background-color: rgb(220,220,220);
             height: 1px;
           }
-
-
-          .helpper {
-            width: 90%;
-            margin-top: 3rem;
-          }
-
-          .helpper > div {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-          }
-
-          .helpper .btn {
-            padding: 1rem 2rem;
-            margin-top: 1rem;
-            border-radius: 4px;
-            color: #3483fa;
-            background-color: #f9f3ff;
-            cursor: pointer;
-            line-height: 1.15;
-            font-weight: 600;
-            user-select: none;
-
-            /* For animated */
-            position: relative;
-            left: -1300px;
-          }
-
-          .helpper .btn > span {
-            position: relative;
-            top: -2px;
-          }
-
-          .helpper .container {
-            padding: 1rem 2rem;
-            text-align: center;
-            width: 80%;
-            display: none;
-          }
-
-
 
         `}</style>
     </App>
