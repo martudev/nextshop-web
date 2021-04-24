@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { isMobile } from '../../../styles/theme';
 
 
-export default function HelperButton(props, { children }) {
+export default function HelperButton({ children, value, containerHeight, mobileContainerHeight }) {
 
     const [isOpened, setOpened] = useState(false);
     const [event, setEvent] = useState(null);
@@ -15,8 +15,8 @@ export default function HelperButton(props, { children }) {
         const btn = event.target;
         const parent = btn.parentElement;
         const container = parent.querySelector('.container');
-        let height = props.containerHeight;
-        if (isMobile()) height = props.mobileContainerHeight;
+        let height = containerHeight;
+        if (isMobile()) height = mobileContainerHeight;
         
         anime({
           targets: container,
@@ -76,10 +76,10 @@ export default function HelperButton(props, { children }) {
         <>
             <section className='helpper-btn'>
                 <div className='btn' onClick={handleToggleHelperBtn}>
-                    {props.value} <span>⌄</span>
+                    {value} <span>⌄</span>
                 </div>
-                <div className='container slide-up'>
-                    {props.container}
+                <div className='container'>
+                    {children}
                 </div>
             </section>
 

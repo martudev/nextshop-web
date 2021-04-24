@@ -31,7 +31,6 @@ export default function App({ children }) {
                     <span></span>
                 </div>
                 <footer onMouseEnter={handleMouseEnterFooter} onMouseLeave={handleMouseLeaveFooter}>
-                    <div>
                         <Link href='#'>
                             <a>Términos y condiciones</a>
                         </Link>
@@ -43,7 +42,6 @@ export default function App({ children }) {
                         <Link href='#'>
                             <a>Ayuda</a>
                         </Link>
-                    </div>
                 </footer>
             </div>
 
@@ -92,15 +90,18 @@ export default function App({ children }) {
 
                 footer {
                     width: 100%;
-                    height: 100px;
+                    padding: 3rem;
+                    color: rgb(150,150,150);
                     background-color: rgba(200,200,200, 0.15);
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    flex-wrap: wrap;
                 }
 
-                footer > div {
-                    color: rgb(150,150,150);
+
+                a {
+                    text-align: center;
                 }
 
                 a:hover,
@@ -111,6 +112,22 @@ export default function App({ children }) {
 
                 span {
                     padding: 0 0.8rem 0 0.8rem;
+                }
+
+                @media(max-width: 600px) {
+                    a {
+                        width: 100%;
+                        padding: 0;
+                        margin-bottom: 1.5rem;
+                    }
+                    
+                    footer {
+                        padding: 2rem 0 0 0;
+                    }
+
+                    footer > span {
+                        display: none;
+                    }
                 }
             `}</style>
         </>
